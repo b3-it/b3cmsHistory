@@ -11,7 +11,7 @@
     "map": [
       ["src/app/code/local/B3it/CmsHistory", "app/code/local/B3it/CmsHistory"],
       ["src/app/etc/modules/B3it_CmsHistory.xml", "app/etc/modules/B3it_CmsHistory.xml"],
-      ["src/app/design/adminhtml/base/default/layout/b3it/cmshistory.xml", "app/design/adminhtml/base/default/layout/b3it/cmshistory.xml"],
+      ["src/app/design/adminhtml/base/default/layout/b3it/cmshistory.xml", "app/design/adminhtml/base/default/layout/b3it/cmshistory.xml"]
     ]
   }
 }
