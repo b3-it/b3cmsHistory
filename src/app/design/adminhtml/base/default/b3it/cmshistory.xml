@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_cms_page_edit>
+        <reference name="cms_page_edit_tabs">
+                <action method="addTab"><name>history_section</name><block>b3it_cmshistory/adminhtml_history_page_tab</block></action>
+        </reference>
+    </adminhtml_cms_page_edit>
+
+    <adminhtml_cms_block_edit>
+        <reference name="content">
+            <block type="b3it_cmshistory/adminhtml_history_block" name="cms_block_history"></block>
+        </reference>
+    </adminhtml_cms_block_edit>
+</layout>
