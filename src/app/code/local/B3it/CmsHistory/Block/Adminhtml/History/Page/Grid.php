@@ -65,7 +65,7 @@ class B3it_CmsHistory_Block_Adminhtml_History_Page_Grid extends Mage_Adminhtml_B
 
 
       $this->addColumn('history_content', [
-          'header'    => Mage::helper('egovs_modelhistory')->__('Diff'),
+          'header'    => Mage::helper('b3it_cmshistory')->__('Diff'),
           'align'     =>'left',
           'index'     => 'history_content',
 //          'width'     => '150px',
