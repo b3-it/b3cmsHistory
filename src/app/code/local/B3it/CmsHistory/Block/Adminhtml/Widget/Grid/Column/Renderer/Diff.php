@@ -52,10 +52,10 @@ class  B3it_CmsHistory_Block_Adminhtml_Widget_Grid_Column_Renderer_Diff extends 
 //                $result[] = "++".substr($from, $from_offset,$n);
                 $from_offset += $n;
             } else if ($opcode === 'd') { // delete n characters from source
-                $result[] = "<del>".substr($from, $from_offset,$n)."</del>";
+                $result[] = "<del>".htmlentities(substr($from, $from_offset,$n),ENT_COMPAT)."</del>";
                 $from_offset += $n;
             } else /* if ( $opcode === 'i' ) */ { // insert n characters from opcodes
-                $result[] = "<ins>".substr($opcodes, $opcodes_offset+1,$n)."<ins";;
+                $result[] = "<ins>".htmlentities(substr($opcodes, $opcodes_offset+1,$n),ENT_COMPAT)."</ins>";
                 $opcodes_offset += 1 + $n;
             }
         }
