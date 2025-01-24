@@ -30,6 +30,36 @@ class  B3it_CmsHistory_Block_Adminhtml_Widget_Grid_Column_Renderer_Diff extends 
         $html = str_replace('\r', "\r", $html);
         $html = str_replace('\n', "\n", $html);
 
-        return "<pre>" . $html . "</pre>";
+        $sum = $this->getSummary($oldValue,$opCodes);
+        return "<details><summary><span>{$sum}</span></summary><pre>{$html}</pre></details>";
+    }
+
+    private function getSummary($from, $opcodes)
+    {
+        $result = [];
+        $opcodes_len = strlen($opcodes);
+        $from_offset = $opcodes_offset = 0;
+        while ($opcodes_offset < $opcodes_len) {
+            $opcode = substr($opcodes, $opcodes_offset, 1);
+            $opcodes_offset++;
+            $n = intval(substr($opcodes, $opcodes_offset));
+            if ($n) {
+                $opcodes_offset += strlen(strval($n));
+            } else {
+                $n = 1;
+            }
+            if ($opcode === 'c') { // copy n characters from source
+//                $result[] = "++".substr($from, $from_offset,$n);
+                $from_offset += $n;
+            } else if ($opcode === 'd') { // delete n characters from source
+                $result[] = "<del>".substr($from, $from_offset,$n)."</del>";
+                $from_offset += $n;
+            } else /* if ( $opcode === 'i' ) */ { // insert n characters from opcodes
+                $result[] = "<ins>".substr($opcodes, $opcodes_offset+1,$n)."<ins";;
+                $opcodes_offset += 1 + $n;
+            }
+        }
+
+        return implode(", ",$result);
     }
 }
